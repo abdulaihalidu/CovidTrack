@@ -1,0 +1,86 @@
+{% extends 'base/analysis-index.html' %}
+{% load static %}
+
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        {% block pageHeader %}
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">CovidTrack</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">Top Three Most Contacted Persons</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        {% endblock %}
+
+        {% block body %}
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-center table-hover datatable">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>TC</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Contact Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for emp in emps %}
+                                    <tr>
+                                        <td>{{emp.tc}}</td>
+                                        <td>{{emp.first_name}}</td>
+                                        <td>{{emp.last_name}}</td>
+                                        <td>{{emp.contact_count}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+<!-- /Page Wrapper -->
+
+</div>
+<!-- /Main Wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'assets/js/jquery-3.5.1.min.js' %}"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+<!-- Feather Icon JS -->
+<script src="{% static 'assets/js/feather.min.js' %}"></script>
+
+<!-- Slimscroll JS -->
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+<!-- Datatables JS -->
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/datatables.min.js' %}"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from kanakku.dreamguystech.com/template-html/customers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 May 2021 05:33:59 GMT -->
+
+</html>

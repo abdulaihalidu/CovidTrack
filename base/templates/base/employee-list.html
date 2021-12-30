@@ -1,0 +1,293 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>CovidTrack</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!--[if lt IE 9]>
+			<script src="{% static 'assets/js/html5shiv.min.js' %}"></script>
+			<script src="{% static 'assets/js/respond.min.js' %}"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- Header -->
+        <div class="header">
+
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="{% static 'assets/img/logo.png' %}">
+                </a>
+                <a href="index.html" class="logo logo-small">
+                    <img src="{% static 'assets/img/logo-small.png' %}">
+                </a>
+            </div>
+            <!-- /Logo -->
+
+            <!-- Sidebar Toggle -->
+            <a href="javascript:void(0);" id="toggle_btn">
+                <i class="fas fa-bars"></i>
+            </a>
+            <!-- /Sidebar Toggle -->
+
+            <!-- Search -->
+            <div class="top-nav-search">
+                <form>
+                    <input type="text" class="form-control" placeholder="Search here">
+                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <!-- /Search -->
+
+            <!-- Mobile Menu Toggle -->
+            <a class="mobile_btn" id="mobile_btn">
+                <i class="fas fa-bars"></i>
+            </a>
+            <!-- /Mobile Menu Toggle -->
+
+            <!-- Header Menu -->
+            <ul class="nav user-menu">
+
+                <!-- Flag -->
+                
+                <!-- /Flag -->
+
+                <!-- Notifications -->
+                
+                <!-- /Notifications -->
+
+                <!-- User Menu -->
+                <li class="nav-item dropdown has-arrow main-drop">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                        <span class="user-img">
+                            <img src="{% static 'assets/img/profiles/avatar-01.jpg' %}">
+                            <span class="status online"></span>
+                        </span>
+                        <span>Admin</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="profile.html"><i data-feather="user" class="mr-1"></i>
+                            Profile</a>
+                        <a class="dropdown-item" href="settings.html"><i data-feather="settings" class="mr-1"></i>
+                            Settings</a>
+                        <a class="dropdown-item" href="login.html"><i data-feather="log-out" class="mr-1"></i>
+                            Logout</a>
+                    </div>
+                </li>
+                <!-- /User Menu -->
+
+            </ul>
+            <!-- /Header Menu -->
+
+        </div>
+        <!-- /Header -->
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title"><span>Main</span></li>
+                        <li>
+                            <a href="index.html"><i data-feather="home"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li class="active">
+                            <a href="{% url 'employees-list' %}"><i data-feather="users"></i> <span>Employees</span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'disease-list' %}"><i data-feather="file-text"></i> <span>Disease List</span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'covid-list' %}"><i data-feather="clipboard"></i> <span>Covid List</span></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'time-table'%}"><i data-feather="credit-card"></i> <span>Time Table</span></a>
+                        </li>
+                        <li class="menu-title">
+                            <span>Analysis</span>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i data-feather="grid"></i> <span> Covid Analysis</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="{% url 'edu-covid-stat' %}">edu-covid stats</a></li>
+                                <li><a href="{% url 'vac-vs-non-vac' %}">vaccinated vs non-vaccinated</a></li>
+                                <li><a href="{% url 'blood-group-covid-stat' %}">blood group covid stats</a></li>
+                                <li><a href="{% url 'working-hours-covid-stat' %}">working hours covid stats</a></li>
+                                <li><a href="{% url 'most-common-covid-symptoms' %}">most common covid symptoms</a></li>
+                                <li><a href="{% url 'most-contacted-persons' %}">most contacted persons</a></li>
+                                <li><a href="{% url 'biontech-vs-sinovac' %}">biontech vs sinovac covid stat</a></li>
+                                <li><a href="{% url 'weekends-workers-covid-stat' %}">weekends workers covid stat</a>
+                                </li>
+                                <li><a href="{% url 'most-freq-ill-emps-covid' %}">most frequently ill employees covid
+                                        statuses</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="#"><i data-feather="grid"></i> <span>Disease Analysis</span> <span class="menu-arrow"></span></a>
+                            <ul>
+                                <li><a href="{% url 'top-three-common-diseases' %}">top three common diseases</a></li>
+                                <li><a href="{% url 'city-common-diseases' %}">city common diseases</a></li>
+                                <li><a href="{% url 'most-commonly-used-drugs-emps' %}">most commonly used drugs</a>
+                                <li><a href="{% url 'non-vaccinated-emp-dis-pres' %}">non vaccinated emp and diseases</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Sidebar -->
+
+        <!-- Page Wrapper -->
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="page-title">CovidTrack</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'employees-list' %}">Employees</a>
+                                </li>
+                                <li class="breadcrumb-item active">List</li>
+                            </ul>
+                        </div>
+                        <div class="col-auto">
+                            <a href="{% url 'create-employee' %}" class="btn btn-primary mr-1">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                            <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
+                                <i class="fas fa-filter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Header -->
+
+                <!-- Search Filter -->
+                <div id="filter_inputs" class="card filter-card">
+                    <div class="card-body pb-0">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Search Filter -->
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card card-table">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-center table-hover datatable">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>TC</th>
+                                                <th>Frist Name</th>
+                                                <th>Last Name</th>
+                                                <th>City</th>
+                                                <th>Level of Education</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for employee in employees %}
+                                            <tr>
+                                                <td>{{employee.tc}}</td>
+                                                <td>{{employee.first_name}}</td>
+                                                <td>{{employee.last_name}}</td>
+                                                <td>{{employee.city}}</td>
+                                                <td>{{employee.level_of_education}}</td>
+                                                <td>
+                                                    <a href="{% url 'update-employee' employee.tc %}"
+                                                        class="btn btn-sm btn-white text-success mr-2"><i
+                                                            class="far fa-edit mr-1"></i></a>
+                                                    <a href="{% url 'delete-employee' employee.tc %}"
+                                                        class="btn btn-sm btn-white text-danger mr-2"><i
+                                                            class="far fa-trash-alt mr-1"></i></a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Wrapper -->
+
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-3.5.1.min.js' %}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Feather Icon JS -->
+    <script src="{% static 'assets/js/feather.min.js' %}"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Datatables JS -->
+    <script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatables/datatables.min.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+</body>
+
+<!-- Mirrored from kanakku.dreamguystech.com/template-html/customers.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 May 2021 05:33:59 GMT -->
+
+</html>

@@ -1,0 +1,13 @@
+{% extends 'base/form-index.html' %}
+{% block content %}
+<div class="header-bar">
+    <a href="{% url 'time-table' %}">&#8592;Back</a>
+</div>
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>Proceed to delete "{{time_table}}" from the time table?</p>
+        <input class="button" type="submit" value="Delete">
+    </form>
+</div>
+{% endblock content %}
